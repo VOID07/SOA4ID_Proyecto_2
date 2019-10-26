@@ -1,0 +1,29 @@
+sudo apt-get update
+sudo apt-get install nginx
+sudo ufw enable
+sudo ufw allow 'nginx full'
+
+ sudo nano /etc/host
+0.0.0.0		compratec.ac.cr
+
+scp -r 0.0.0.0:/locationdel proyecto
+
+sudo chmod -R 777 *
+scp -r 0.0.0.0:/locationdel proyecto
+
+cd /etc/nginx/
+sudo nano sites-available/directorio de proyecto
+
+server {
+listen 80 default_server;
+listen [::] default_server;
+root /proyectLocation/
+server_name compraTEC;
+location / {
+try_files $uri $uri/ =404;
+}
+
+sudo ln -s /etc/nginx/sites-available/proyectName /etc/nginx/sites-enabled/demo
+sudo mv /etc/nginx/sites-enabled/default /directiorio deseado
+sudo systemctl restart nginx
+

@@ -1,0 +1,33 @@
+gem install bundler
+gem install rails -v 5.2.2
+
+sudo apt-get install libmysqlclient-dev
+gem install mysql2 -v '0.5.2' --source 'https://rubygems.org/'
+
+rails new Ruby_SOA -d mysql
+cd Ruby_SOA
+bundle update --source=mysql
+bundle exec rails db:create
+bundle exec rails server
+
+
+add gem to Gemfile
+
+gem 'graphql', '1.8.13'
+bundle update
+bundle exec rails generate graphql:install
+
+inside Gemfile, change 
+gem 'graphiql-rails', group: :development
+for 
+gem 'graphiql-rails', '1.5.0', group: :development
+bundle update
+bundle install
+
+ bundle exec rails generate model User name:string! mail:string! direccion:string! telefono:int! id:ID!
+bundle exec rails db:migrate, 
+
+User.create!( name:"dago", mail:"mail", direccion:"dir", telefono:"tel")
+
+rails s -b 0.0.0.0 -p 3000
+
